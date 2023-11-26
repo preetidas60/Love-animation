@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+      background-color: #f8d7da; /* Light red background color, you can change it */
+    }
+
+    .heart {
+      width: 100px;
+      height: 90px;
+      background-color: #dc3545; /* Red heart color, you can change it */
+      position: relative;
+      transform: rotate(-45deg);
+      animation: pulse 1s infinite;
+    }
+
+    .heart::before,
+    .heart::after {
+      content: '';
+      width: 100px;
+      height: 100px;
+      background-color: #dc3545;
+      border-radius: 50%;
+      position: absolute;
+    }
+
+    .heart::before {
+      top: -50px;
+      left: 0;
+    }
+
+    .heart::after {
+      top: 0;
+      left: 50px;
+    }
+
+    @keyframes pulse {
+      0%,
+      100% {
+        transform: scale(1);
+      }
+
+      50% {
+        transform: scale(1.2);
+      }
+    }
+
+    button {
+      margin-top: 20px;
+      padding: 10px 20px;
+      font-size: 16px;
+      background-color: #007bff; /* Blue button color, you can change it */
+      color: #fff; /* White text color, you can change it */
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #0056b3; /* Darker blue on hover, you can change it */
+    }
+  </style>
+</head>
+<body>
+  <div class="heart"></div>
+  <p style="margin-top: 20px; font-size: 20px;">I Love You!</p>
+  <button onclick="askLove()">Do you love me?</button>
+
+  <script>
+    function askLove() {
+      alert("I love you too!");
+    }
+  </script>
+</body>
+</html>
