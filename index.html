@@ -54,8 +54,13 @@
       }
     }
 
-    button {
+    p {
       margin-top: 20px;
+      font-size: 20px;
+    }
+
+    button {
+      margin-top: 10px;
       padding: 10px 20px;
       font-size: 16px;
       background-color: #007bff; /* Blue button color, you can change it */
@@ -68,16 +73,45 @@
     button:hover {
       background-color: #0056b3; /* Darker blue on hover, you can change it */
     }
+
+    .response-buttons {
+      display: flex;
+      flex-direction: column;
+      margin-top: 10px;
+    }
+
+    .response-buttons button {
+      margin: 5px 0;
+      transition: margin-left 0.5s;
+    }
+
+    .response-buttons button:hover {
+      margin-left: 20px; /* You can adjust the distance it moves */
+    }
   </style>
 </head>
 <body>
   <div class="heart"></div>
-  <p style="margin-top: 20px; font-size: 20px;">I Love You!</p>
+  <p>I Love You!</p>
   <button onclick="askLove()">Do you love me?</button>
+
+  <div class="response-buttons" style="display: none;">
+    <button onclick="showResponse('Yes')">Yes</button>
+    <button onmouseover="moveNo()">No</button>
+  </div>
 
   <script>
     function askLove() {
-      alert("I love you too!");
+      document.querySelector('.response-buttons').style.display = 'flex';
+    }
+
+    function showResponse(response) {
+      alert(response === 'Yes' ? 'I love you too!' : 'It\'s okay, I understand.');
+    }
+
+    function moveNo() {
+      const noButton = document.querySelector('.response-buttons button:last-child');
+      noButton.style.marginLeft = '20px'; // You can adjust the distance it moves
     }
   </script>
 </body>
